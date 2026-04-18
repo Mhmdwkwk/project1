@@ -84,7 +84,7 @@ class _FalsePositionPageState extends State<FalsePositionPage> {
       xr = xuVal - (fxu * (xlVal - xuVal)) / (fxl - fxu);
       double fxr = evaluateFunction(eq, xr);
 
-      // 🔥 Error Calculation (Fixed)
+      //  Error Calculation (Fixed)
       if (step > 1 && xr != 0) {
         error = ((xr - xrOld).abs() / xr) * 100;
         errorDisplay = error.toStringAsFixed(6);
@@ -106,7 +106,7 @@ class _FalsePositionPageState extends State<FalsePositionPage> {
         ),
       );
 
-      // 🔥 Stop Conditions
+      //  Stop Conditions
       if (fxr == 0) break;
       if (error != null && error <= tol) break;
 
