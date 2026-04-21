@@ -79,7 +79,7 @@ class _SecantPageState extends State<SecantPage> {
       final denom = fx1 - fx0;
       if (denom == 0) break;
 
-      final xNew = x1 - fx1 * (x1 - x0) / denom;
+      final xNew = x1 - fx1 * (x0 - x1) / f(x0)-f(x1);
       final fxNew = evaluateFunction(eq, xNew);
 
       
