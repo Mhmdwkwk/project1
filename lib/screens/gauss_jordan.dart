@@ -26,16 +26,14 @@ class _GaussJordanPageState extends State<GaussJordanPage> {
   List<GaussStep> steps = [];
   bool showSolution = false;
 
-  // =========================
-  // GAUSS JORDAN METHOD
-  // =========================
+
   void calculateGaussJordan() {
     List<List<double>> a = matrix.map((e) => [...e]).toList();
     steps.clear();
 
     int n = 3;
 
-    // Initial matrix
+ 
     steps.add(
       GaussStep(
         title: "Initial Matrix",
@@ -47,7 +45,7 @@ class _GaussJordanPageState extends State<GaussJordanPage> {
     for (int i = 0; i < n; i++) {
       List<String> ops = [];
 
-      // 1. Normalize pivot row
+      
       double pivot = a[i][i];
 
       if (pivot == 0) continue;
@@ -58,7 +56,6 @@ class _GaussJordanPageState extends State<GaussJordanPage> {
 
       ops.add("R${i + 1} = R${i + 1} ÷ ${pivot.toStringAsFixed(3)}");
 
-      // 2. Eliminate all other rows (Jordan step)
       for (int k = 0; k < n; k++) {
         if (k != i) {
           double factor = a[k][i];
@@ -82,7 +79,6 @@ class _GaussJordanPageState extends State<GaussJordanPage> {
       );
     }
 
-    // Final solution directly from RREF
     steps.add(
       GaussStep(
         title: "Final Solution",
@@ -100,9 +96,7 @@ class _GaussJordanPageState extends State<GaussJordanPage> {
     });
   }
 
-  // =========================
-  // MATRIX INPUT
-  // =========================
+
   Widget buildMatrixInput() {
     return GridView.builder(
       shrinkWrap: true,
@@ -138,9 +132,8 @@ class _GaussJordanPageState extends State<GaussJordanPage> {
     );
   }
 
-  // =========================
-  // MATRIX VIEW
-  // =========================
+ 
+
   Widget buildMatrix(List<List<double>> m) {
     return Column(
       children: m.map((row) {
@@ -167,9 +160,7 @@ class _GaussJordanPageState extends State<GaussJordanPage> {
     );
   }
 
-  // =========================
-  // STEPS UI
-  // =========================
+
   Widget buildSteps() {
     return Column(
       children: steps.map((step) {
@@ -210,9 +201,6 @@ class _GaussJordanPageState extends State<GaussJordanPage> {
     );
   }
 
-  // =========================
-  // UI
-  // =========================
   @override
   Widget build(BuildContext context) {
     return Scaffold(
