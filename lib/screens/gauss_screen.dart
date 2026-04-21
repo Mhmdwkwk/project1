@@ -26,9 +26,7 @@ class _GaussPageState extends State<GaussPage> {
   List<GaussStep> steps = [];
   bool showSolution = false;
 
-  // =========================
-  // GAUSS ELIMINATION
-  // =========================
+
   void calculateGauss() {
     List<List<double>> a = matrix.map((row) => [...row]).toList();
     steps.clear();
@@ -44,7 +42,7 @@ class _GaussPageState extends State<GaussPage> {
       ),
     );
 
-    // Forward Elimination
+  
     for (int i = 0; i < n; i++) {
       List<String> ops = [];
 
@@ -71,7 +69,6 @@ class _GaussPageState extends State<GaussPage> {
       );
     }
 
-    // Back Substitution
     List<double> x = List.filled(n, 0);
 
     for (int i = n - 1; i >= 0; i--) {
@@ -101,9 +98,7 @@ class _GaussPageState extends State<GaussPage> {
     });
   }
 
-  // =========================
-  // MATRIX INPUT UI
-  // =========================
+
   Widget buildMatrixInput() {
     return GridView.builder(
       shrinkWrap: true,
@@ -139,9 +134,7 @@ class _GaussPageState extends State<GaussPage> {
     );
   }
 
-  // =========================
-  // MATRIX DISPLAY
-  // =========================
+
   Widget buildMatrix(List<List<double>> matrix) {
     return Column(
       children: matrix.map((row) {
@@ -170,9 +163,7 @@ class _GaussPageState extends State<GaussPage> {
     );
   }
 
-  // =========================
-  // STEPS UI
-  // =========================
+
   Widget buildSteps() {
     return Column(
       children: steps.map((step) {
@@ -222,9 +213,7 @@ class _GaussPageState extends State<GaussPage> {
     );
   }
 
-  // =========================
-  // UI
-  // =========================
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -241,7 +230,7 @@ class _GaussPageState extends State<GaussPage> {
         padding: const EdgeInsets.all(20),
         child: Column(
           children: [
-            // INPUT CARD
+           
             Card(
               elevation: 6,
               shape: RoundedRectangleBorder(
@@ -288,7 +277,7 @@ class _GaussPageState extends State<GaussPage> {
 
             const SizedBox(height: 25),
 
-            // STEPS
+            
             if (showSolution) ...[
               const Align(
                 alignment: Alignment.centerLeft,
