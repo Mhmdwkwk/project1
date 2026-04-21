@@ -80,7 +80,7 @@ class _LUPivotPageState extends State<LUPivotPage> {
     setState(() => show = true);
   }
 
-  // ================= UI DESIGN =================
+
 
   Widget matrixBox(List<List<double>> m) {
     return Container(
