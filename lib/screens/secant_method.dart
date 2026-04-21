@@ -60,7 +60,7 @@ class _SecantPageState extends State<SecantPage> {
     double x1 = double.parse(x1Text);
     final tol = double.parse(tolText);
 
-    // Iteration 1: initial فقط (Error = -)
+    
     iterations.add(
       IterationData(
         1,
@@ -82,7 +82,7 @@ class _SecantPageState extends State<SecantPage> {
       final xNew = x1 - fx1 * (x1 - x0) / denom;
       final fxNew = evaluateFunction(eq, xNew);
 
-      // هنا Iteration 2 هيحسب بين xNew(=x2) و x1
+      
       final ea = (xNew == 0) ? null : ((xNew - x1).abs() / xNew.abs()) * 100;
 
       iterations.add(
@@ -108,7 +108,7 @@ class _SecantPageState extends State<SecantPage> {
     setState(() => finalRoot = x1);
   }
 
-  // 🔥 TEXTFIELD (FIXED)
+
   Widget buildTextField({
     required TextEditingController controller,
     required String label,
@@ -130,7 +130,7 @@ class _SecantPageState extends State<SecantPage> {
     );
   }
 
-  // 🔥 TABLE
+
   Widget buildIterationsTable() {
     if (iterations.isEmpty) return const SizedBox();
 
